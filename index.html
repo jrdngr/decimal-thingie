@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Decimal Thingie</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="helpers.js"></script>
+    <script type="text/javascript" src="canvasdrawing.js"></script>
+    <script type="text/javascript" src="decimalexpansion.js"></script>
+		<script type="text/javascript" src="globals.js"></script>
+	</head>
+	<body onload="init();">
+		<div>
+			<div class="fraction-input">
+				<input type="number" id="numerator" min="0" max="999" value="17" onchange="changedNumber()">
+				<div class="fraction-divider"></div>
+				<input type="number" id="denominator" min="1" max="1000" value="40" onchange="changedNumber()">
+			</div>
+			<div class="instructions">
+				<p>Number must be between 0 and 1</p>
+				<p>Numerator Range: 0-999</p>
+				<p>Denominator Range: 1-1000</p>
+		 	</div>
+			<input type="button" id="start" onClick="startButtonPressed()" value="START">
+			<input type="number" id="animation-speed" min="1" max="10" value="5" onchange="changedSpeed()">
+			<p>Animation Speed</p>
+
+			<canvas id="canvas" width="900" height="300">
+				Your browser doesn't support the canvas element.
+			</canvas>
+			<div id="message_area">Click start to begin</div>
+
+			<div class="explanation">
+				<p>This is a little toy to help you understand how decimal notation works.</p>
+				<p>We divide the number line up into 10 closed intervals and give each of them a label.  A closed interval is just a set of numbers
+				between two points where both of the endpoints are included.  For example, the interval labeled 5 includes all of the points between 5/10 and 6/10, as well as 5/10 and 6/10 themselves.</p>
+				<p>The red line represents the number for which we're trying to find a decimal.  For each digit, we simply look at which interval contains our number and add its label to our decimal.
+					Then we zoom in on that interval and repeat the process.</p>
+				<p>Since we're using closed intervals, each interval shares its endpoints with its neighbors.  This means that it's possible for our number to be in two different intervals at once.  As a result,
+					some numbers have two different decimal representations.  Can you figure out which numbers have two decimal representations in general?</p>
+			</div>
+
+			<a href="http://picklenerd.com/math/decimal-expansion/">Click here</a> for a longer explanation without the fancy animations.
+		</div>
+	</body>
+</html>
